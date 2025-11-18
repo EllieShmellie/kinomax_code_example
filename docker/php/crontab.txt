@@ -1,0 +1,2 @@
+0 * * * * php /var/www/html/yii premiere-notify/send >> /var/log/premiere-cron.log 2>&1
+

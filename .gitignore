@@ -1,0 +1,46 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors / IDE
+.idea/
+.vscode/
+nbproject/
+.buildpath
+.project
+.settings
+
+# Python / virtualenv artifacts (if created alongside Docker)
+.venv/
+venv/
+__pycache__/
+
+# Node/Yarn leftovers
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Composer / Yii
+app/vendor/
+app/runtime/
+app/web/assets/
+app/tests/_output/
+app/tests/_support/_generated/
+app/tests/_data/*.db
+app/.phpunit.cache/
+
+# Env & local configs
+.env
+app/config/db-local.php
+app/config/web-local.php
+app/config/console-local.php
+app/config/params-local.php
+
+# Docker
+db_data/
+
+# Misc
+composer.phar
+phpunit.phar
+/phpunit.xml
+*.log
