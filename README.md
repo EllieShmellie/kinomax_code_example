@@ -8,22 +8,17 @@
    ```
    `POSTGRES_PORT` — порт на хосте, `POSTGRES_DB_PORT` — порт внутри контейнера (обычно `5432`).
 
-2. Один раз установи шаблон Yii2 прямо в папку `app/`:
-   ```bash
-   docker compose run --rm app composer create-project yiisoft/yii2-app-basic .
-   ```
-
-3. Подними всё и открой http://localhost:8080:
+2. Подними всё и открой http://localhost:8080:
    ```bash
    docker compose up -d --build (cron для отправки писем стартует автоматически в контейнере app)
    ```
 
-4. Если менял настройки БД — поправь `app/config/db.php`, затем накати миграции и сиды:
+3. Если менял настройки БД — поправь `app/config/db.php`, затем накати миграции и сиды:
    ```bash
    docker compose exec app php yii migrate --migrationPath=@app/migrations
    ```
 
-5. В `app/config/params.php` задай реальный `adminEmail`, а SMTP-настройки пропиши в `.env` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_ENCRYPTION`). Если `SMTP_HOST` пуст, письма пишутся в `app/runtime/mail/`. При необходимости вручную запускай отправку:
+4. В `app/config/params.php` задай реальный `adminEmail`, а SMTP-настройки пропиши в `.env` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_ENCRYPTION`). Если `SMTP_HOST` пуст, письма пишутся в `app/runtime/mail/`. При необходимости вручную запускай отправку:
    ```bash
    docker compose exec app php yii premiere-notify/send
    ```
